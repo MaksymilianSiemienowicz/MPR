@@ -6,6 +6,9 @@ import data.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 public class StudentService {
@@ -16,5 +19,13 @@ public class StudentService {
 
         studentRepository.createStudent(student);
 
+    }
+
+    public Optional<Student> getStudentById(UUID id){
+        return studentRepository.getStudentById(id);
+    }
+
+    public void deleteByName(String name) {
+        studentRepository.deleteByName(name);
     }
 }
